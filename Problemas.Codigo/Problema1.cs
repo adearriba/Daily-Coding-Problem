@@ -19,7 +19,7 @@ namespace Problemas.Codigo
     public class Problema1
     {
         /*
-        Se consigue un algoritmo de O(N) en complejidad para dar respuesta a este problema.
+        Se consigue un algoritmo de complejidad lineal O(N) para dar respuesta a este problema.
 
         Se quiere encontrar 2 numeros que sumen K en una lista. Por lo tanto: K = a + b
 
@@ -52,6 +52,32 @@ namespace Problemas.Codigo
                     break;
                 }       
                 set.Add(n[i]);
+            }
+
+            return resultado;
+        }
+
+        /*
+        Esta versión usa una complejidad cuadrática O(n2) al usar 2 loops, uno anidado al otro.
+        Es una respuesta menos eficiente pero más fácil de deducir que la anterior.
+         */
+        public bool ObtenerRespuestaMenosEficiente(int[] n, int k)
+        {
+            var resultado = false;
+            
+            for (int i = 0; i < n.Length-1; i++)
+            {
+                //Siempre empieza en el indice siguiente al del loop anterior
+                //En el peor de los casos, todos los numeros seran sumados entre si
+                //Debido a esto, el crecimiento es exponencial en referencia a la variable "n"
+                for (int j = (i+1); j < n.Length; j++)
+                {
+                    if(n[i] + n[j] == k)
+                    {
+                        resultado = true;
+                        break;
+                    }
+                }
             }
 
             return resultado;

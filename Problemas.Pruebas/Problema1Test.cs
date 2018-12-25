@@ -20,7 +20,9 @@ namespace Problemas.Pruebas
         {
             var n = numbers;
             var resultado = problema.ObtenerRespuesta(n, k);
+            var resultado2 = problema.ObtenerRespuestaMenosEficiente(n, k);
             Assert.True(resultado, String.Format("No se encontró la suma de {0} en el arreglo {1}", k, n));
+            Assert.True(resultado2, String.Format("No se encontró la suma de {0} en el arreglo {1}", k, n));
         }
 
         [Theory]
@@ -31,7 +33,9 @@ namespace Problemas.Pruebas
         {
             var n = numbers;
             var resultado = problema.ObtenerRespuesta(n, k);
+            var resultado2 = problema.ObtenerRespuestaMenosEficiente(n, k);
             Assert.False(resultado, String.Format("Se encontró la suma de {0} en el arreglo {1}", k, n));
+            Assert.False(resultado2, String.Format("Se encontró la suma de {0} en el arreglo {1}", k, n));
         }
     }
 }
